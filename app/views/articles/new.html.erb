@@ -1,6 +1,9 @@
-<h1>Create a new article</h1>
+<div class="container">
+  <h1>Create a new article</h1>
 
-<%= render 'errors' %>
-<%= render 'form' %>
+  <%= render 'errors' %>
+  <%= render 'form' %>
 
-<p><%= link_to 'Back to Articles', articles_path %></p>
+  <hr>
+  <%= link_to "Back to All Articles", articles_path, class: "btn btn-info" %>
+</div>

@@ -1,10 +1,10 @@
-<h1>Edit article</h1>
+<div class="container">
+  <h1>Edit article</h1>
 
-<%= render 'errors' %>
-<%= render 'form' %>
+  <%= render 'errors' %>
+  <%= render 'form' %>
+  <hr>
+  <%= link_to "Back to All Articles", articles_path, class: "btn btn-info" %>
 
-<p>
-  <%= link_to 'Back to Articles', articles_path %>
-  |
-  <%= link_to 'Original Article', article_path(@article) %>
-</p>
+  <%= link_to "Back to Original Article", @article, class: "btn btn-info" %>
+</div>
