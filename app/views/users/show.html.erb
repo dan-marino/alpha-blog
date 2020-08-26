@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Profile</h1>
+
+  <%= gravatar_for @user %>
+  <p>
+    <strong>username:
+    </strong><%= @user.username %></p>
+  <p>
+    <strong>email:
+    </strong><%= @user.email %>
+  </p>
+
+  <h3>Articles</h3>
+
+  <%= render 'articles/article', articles: @user.articles %>
+
+  <%= link_to "Edit", edit_article_path, class: "btn btn-info" %>
+
+  <%= link_to "Back", articles_path, class: "btn btn-info" %>
+
+</div>
