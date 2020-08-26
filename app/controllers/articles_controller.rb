@@ -1,8 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  def show
-  end
+  def show; end
 
   def index
     @articles = Article.all
@@ -14,6 +13,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user_id = User.first.id # TODO: change hardcoded user
     if @article.save
       flash[:notice] = "Article was created successfully."
       redirect_to @article
@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article.user_id = User.first.id # TODO: change hardcoded user
   end
 
   def update
