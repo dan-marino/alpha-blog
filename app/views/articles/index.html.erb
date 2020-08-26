@@ -6,6 +6,7 @@
       <tr>
         <th>Title</th>
         <th>Description</th>
+        <th>Author</th>
         <th colspan="2">Actions</th>
       </tr>
     </thead>
@@ -14,6 +15,7 @@
         <tr>
           <td><%= link_to article.title, article_path(article) %></td>
           <td><%= article.description %></td>
+          <td><%= article.user.username %></td>
           <td><%= link_to 'Edit', edit_article_path(article) %></td>
           <td><%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %></td>
         </tr>
