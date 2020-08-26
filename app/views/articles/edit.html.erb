@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Edit article</h1>
 
-  <%= render 'errors' %>
+  <%= render 'shared/errors', object: @article %>
   <%= render 'form' %>
   <hr>
   <%= link_to "Back to All Articles", articles_path, class: "btn btn-info" %>
