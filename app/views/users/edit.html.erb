@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Edit Profile</h1>
+
+  <%= render 'shared/errors', object: @user %>
+  <%= render 'form' %>
+
+  <hr>
+  <%= link_to "Back to All Articles", articles_path, class: "btn btn-info" %>
+</div>
