@@ -1,5 +1,13 @@
 <div class="container">
+
   <h1>Alpha Bloggers</h1>
+
+  <div class="flickr_pagination">
+    <%= will_paginate @users, :container => false %>
+  </div>
+
+  <br>
+
   <table class="table">
     <thead>
       <tr>
