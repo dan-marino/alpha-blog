@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
   end
@@ -13,7 +15,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to @user unless logged_in? && @user == current_user
+    unless logged_in? && @user == current_user
+      flash[:error] = "You must be logged in to do that."
+      redirect_to @user
+    end
   end
 
   def update
@@ -47,5 +52,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "You can only edit your own profile"
+      redirect_to @user
+    end
   end
 end
