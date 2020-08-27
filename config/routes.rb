@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'login', to: "sessions#create"
   delete 'logout', to: 'sessions#destroy'
 
+  resources :categories, except: [:destroy]
   resources :articles
   # get 'articles', to: 'articles#index', as: 'articles'
   # get 'articles/new', to: 'articles#new', as: 'new_article'
