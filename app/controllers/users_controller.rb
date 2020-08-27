@@ -12,7 +12,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit; end
+  def edit
+    redirect_to @user unless logged_in? && @user == current_user
+  end
 
   def update
     if @user.update(user_params)

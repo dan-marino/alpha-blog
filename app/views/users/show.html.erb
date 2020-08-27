@@ -10,7 +10,9 @@
     </strong><%= @user.email %>
   </p>
 
-  <%= link_to "Edit Profile", edit_user_path, class: "btn btn-info" %>
+  <% if logged_in? && @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_path, class: "btn btn-info" %>
+  <% end %>
 
   <hr>
 

@@ -23,7 +23,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article.user_id = User.first.id # TODO: change hardcoded user
+    if logged_in? && @article.user == current_user
+      @article.user = current_user
+    else
+      redirect_to @article
+    end
   end
 
   def update
