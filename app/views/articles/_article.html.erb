@@ -4,6 +4,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Author</th>
+      <th>Categories</th>
       <th colspan="2">Actions</th>
     </tr>
   </thead>
@@ -13,9 +14,21 @@
         <td><%= link_to article.title, article_path(article) %></td>
         <td><%= article.description %></td>
         <td><%= article.user.username %></td>
+        <% if article.categories.any? %>
+          <td>
+          <% article.categories.each do |category| %>
+            <%= link_to category.name, category_path(category) %>
+          <% end %>
+          </td>
+        <% else %>
+          <td> - </td>
+        <% end %>
         <% if logged_in? && article.user == current_user %>
           <td><%= link_to 'Edit', edit_article_path(article) %></td>
           <td><%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <% else %>
+          <td> - </td>
+          <td> - </td>
         <% end %>
       </tr>
     <% end %>
