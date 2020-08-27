@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Categories Index</h1>
+
+  <div class="flickr_pagination">
+    <%= will_paginate @categories, :container => false %>
+  </div>
+  <br>
+  <%= render 'category' %>
+</div>

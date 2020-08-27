@@ -2,7 +2,7 @@
   <h1>Articles Index</h1>
 
   <div class="flickr_pagination">
-    <%= will_paginate @posts, :container => false %>
+    <%= will_paginate @articles, :container => false %>
   </div>
   <br>
   <%= render 'article', articles: @articles %>
